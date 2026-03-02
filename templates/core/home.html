@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio | Smart Code{% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-center hero-section">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="hero-card mx-auto">
+
+                <h1 class="display-4 fw-bold mb-4">
+                    Desarrollo Web Profesional <br>
+                    <span class="text-primary">y Sistemas a Medida</span>
+                </h1>
+
+                <p class="lead text-muted mb-4">
+                    Construyo soluciones escalables en Django, bases de datos y arquitectura limpia 
+                    para empresas que necesitan sistemas sólidos y mantenibles.
+                </p>
+
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="#" class="btn btn-primary btn-lg px-4">
+                        Solicitar Cotización
+                    </a>
+
+                    <a href="#" class="btn btn-outline-dark btn-lg px-4">
+                        Ver Proyectos
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Servicios</h2>
+        <p class="text-muted">Soluciones técnicas orientadas a resultados</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Desarrollo Web</h5>
+                    <p class="card-text text-muted">
+                        Aplicaciones web modernas con Django, arquitectura limpia y buenas prácticas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Bases de Datos</h5>
+                    <p class="card-text text-muted">
+                        Diseño y optimización de bases de datos relacionales escalables.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Sistemas a Medida</h5>
+                    <p class="card-text text-muted">
+                        Soluciones empresariales adaptadas a necesidades específicas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

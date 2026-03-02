@@ -1,0 +1,220 @@
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.navbar-brand {
+    letter-spacing: 1px;
+}
+
+.hero-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.hero-section h1 {
+    line-height: 1.2;
+}
+
+section {
+    position: relative;
+}
+
+/* =========================================
+     Smart Code Theme System (final overrides)
+     ========================================= */
+
+:root[data-bs-theme="light"]{
+    --sc-page-bg: #d6dee9;         /* fondo un poco más oscuro */
+    --sc-surface-bg: #ffffff;      /* cards/hero */
+    --sc-surface-2: #f8fafc;       /* variación suave */
+    --sc-border: rgba(15, 23, 42, 0.10);
+    --sc-text: #0f172a;
+    --sc-muted: rgba(15, 23, 42, 0.65);
+    --sc-shadow: 0 18px 60px rgba(15, 23, 42, 0.10);
+    --sc-shadow-hover: 0 22px 75px rgba(15, 23, 42, 0.14);
+}
+
+:root[data-bs-theme="dark"]{
+    --sc-page-bg: #0b0f14;         /* más oscuro para contraste */
+    --sc-surface-bg: #151b24;      /* surface más claro que el fondo */
+    --sc-surface-2: #1b2330;
+    --sc-border: rgba(255, 255, 255, 0.12);
+    --sc-text: rgba(255, 255, 255, 0.92);
+    --sc-muted: rgba(255, 255, 255, 0.70);
+    --sc-shadow: 0 24px 90px rgba(0,0,0,0.65);
+    --sc-shadow-hover: 0 30px 110px rgba(0,0,0,0.80);
+}
+
+/* Fondo general */
+body{
+    background: var(--sc-page-bg) !important;
+    color: var(--sc-text) !important;
+}
+
+/* Titulares y texto */
+h1, h2, h3, h4, h5, h6{
+    color: var(--sc-text) !important;
+}
+
+p, span, li, small{
+    color: inherit;
+}
+
+/* Texto secundario (este era el que te estaba matando en dark) */
+.text-muted{
+    color: var(--sc-muted) !important;
+}
+
+/* Hero card */
+.hero-card{
+    background: var(--sc-surface-bg) !important;
+    color: var(--sc-text) !important;
+    border: 1px solid var(--sc-border) !important;
+    box-shadow: var(--sc-shadow) !important;
+}
+
+/* Cards (servicios) */
+.card{
+    background: var(--sc-surface-bg) !important;
+    color: var(--sc-text) !important;
+    border: 1px solid var(--sc-border) !important;
+    box-shadow: var(--sc-shadow) !important;
+}
+
+.card:hover{
+    box-shadow: var(--sc-shadow-hover) !important;
+}
+
+/* Card text dentro (por si Bootstrap pisa colores) */
+.card .card-title{
+    color: var(--sc-text) !important;
+}
+.card .card-text{
+    color: var(--sc-muted) !important;
+}
+
+/* Botón outline en dark para que no se pierda */
+:root[data-bs-theme="dark"] .btn-outline-dark{
+    color: var(--sc-text) !important;
+    border-color: var(--sc-border) !important;
+}
+:root[data-bs-theme="dark"] .btn-outline-dark:hover{
+    background: var(--sc-surface-2) !important;
+}
+
+/* Un poco más de separación visual para que “flote” */
+.hero-card, .card{
+    border-radius: 16px !important;
+}
+
+/* Ajuste del panel suave detrás del hero */
+.hero-section{
+    padding-top: 90px;
+    padding-bottom: 70px;
+}
+
+
+.card {
+    border-radius: 12px;
+}
+
+
+.hero-card {
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 16px;
+    padding: 60px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Cards adaptables al tema */
+.card {
+    border-radius: 12px;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card .text-muted {
+    color: var(--bs-secondary-color) !important;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Ajustes para que el tema de Bootstrap se note bien */
+body {
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+/* ==============================
+   Theme surfaces (premium contrast)
+   ============================== */
+
+:root[data-bs-theme="light"] {
+    --sc-page-bg: #d6dee9;      /* fondo página (más oscuro suave) */
+    --sc-surface-bg: #ffffff;    /* cards/hero */
+    --sc-border: rgba(0,0,0,0.08);
+    --sc-shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+    --sc-shadow-hover: 0 18px 55px rgba(16, 24, 40, 0.12);
+}
+
+:root[data-bs-theme="dark"] {
+    --sc-page-bg: #0f131a;       /* fondo página (más oscuro) */
+    --sc-surface-bg: #161c26;    /* cards/hero un poco más claro que el fondo */
+    --sc-border: rgba(255,255,255,0.10);
+    --sc-shadow: 0 18px 55px rgba(0,0,0,0.45);
+    --sc-shadow-hover: 0 22px 70px rgba(0,0,0,0.60);
+}
+
+/* Fondo general */
+body {
+    background: var(--sc-page-bg);
+    color: var(--bs-body-color);
+}
+
+/* Hero como “surface” */
+.hero-card {
+    background: var(--sc-surface-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--sc-border);
+    border-radius: 16px;
+    padding: 60px 40px;
+    box-shadow: var(--sc-shadow);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Cards como “surface” */
+.card {
+    background: var(--sc-surface-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--sc-border);
+    border-radius: 14px;
+    box-shadow: var(--sc-shadow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sc-shadow-hover);
+}
+
+/* Texto secundario legible en ambos temas */
+.text-muted,
+.card .text-muted {
+    color: var(--bs-secondary-color) !important;
+}
+
+/* Separación visual para la sección de servicios */
+section {
+    position: relative;
+}
+
