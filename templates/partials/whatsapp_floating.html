@@ -1,0 +1,11 @@
+{% load static %}
+<a
+  class="whatsapp-float"
+  href="https://wa.me/{{ WHATSAPP_PHONE_E164 }}?text={{ WHATSAPP_DEFAULT_TEXT|urlencode }}"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Abrir WhatsApp para contactar"
+  title="Escríbeme por WhatsApp"
+>
+  <span class="whatsapp-float__icon" aria-hidden="true">W</span>
+</a>

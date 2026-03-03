@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Proyectos | Smart Code{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Proyectos</h1>
+        <p class="text-muted">Casos reales desarrollados</p>
+    </div>
+
+    <div class="row g-4">
+
+        {% for project in projects %}
+            <div class="col-md-4">
+                <div class="card h-100">
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">
+                            {{ project.title }}
+                        </h5>
+
+                        <p class="card-text">
+                            {{ project.short_description }}
+                        </p>
+
+                        <div class="mt-auto">
+                            <a href="{% url 'projects:detail' project.slug %}" 
+                               class="btn btn-sm btn-primary">
+                                Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No hay proyectos aún.</p>
+            </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+{% endblock %}

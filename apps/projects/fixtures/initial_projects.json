@@ -1,0 +1,46 @@
+[
+  {
+    "model": "projects.technology",
+    "pk": 1,
+    "fields": {
+      "name": "Django",
+      "slug": "django"
+    }
+  },
+  {
+    "model": "projects.technology",
+    "pk": 2,
+    "fields": {
+      "name": "Bootstrap",
+      "slug": "bootstrap"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 1,
+    "fields": {
+      "title": "Sitio Corporativo para ACME",
+      "slug": "sitio-corporativo-acme",
+      "short_description": "Web corporativa con panel administrativo y SEO.",
+      "description": "Proyecto completo para ACME, incluye CMS y optimización SEO.",
+      "technologies": [1, 2],
+      "is_featured": true,
+      "created_at": "2026-03-02T00:00:00Z",
+      "updated_at": "2026-03-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 2,
+    "fields": {
+      "title": "Plataforma de Gestión Interna",
+      "slug": "plataforma-gestion-interna",
+      "short_description": "Sistema interno para seguimiento de tareas y usuarios.",
+      "description": "Aplicación a medida para gestión de equipos y reporting.",
+      "technologies": [1],
+      "is_featured": false,
+      "created_at": "2026-02-15T00:00:00Z",
+      "updated_at": "2026-02-15T00:00:00Z"
+    }
+  }
+]

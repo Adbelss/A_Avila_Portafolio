@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                    'apps.core.context_processors.global_contact_settings',
             ],
         },
     },
@@ -130,3 +131,7 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# WhatsApp (CTA global)
+WHATSAPP_PHONE_E164 = "50247808757"  # sin "+"
+WHATSAPP_DEFAULT_TEXT = "Hola Adbel, me interesa solicitar una cotización."

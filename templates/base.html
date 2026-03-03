@@ -25,12 +25,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/proyectos/">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Sobre mí</a></li>
 
                     <li class="nav-item ms-lg-3">
-                        <a class="btn btn-primary" href="#">Contacto</a>
+                        <a class="btn btn-primary" href="/contacto/">Contacto</a>
                     </li>
 
                     <!-- Theme toggle -->
@@ -65,5 +65,6 @@
 
     <!-- App JS -->
     <script src="{% static 'js/app.js' %}"></script>
+    {% include "partials/whatsapp_floating.html" %}
 </body>
 </html>
