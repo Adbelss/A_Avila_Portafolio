@@ -130,8 +130,15 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+# Carpeta donde collectstatic recopilará archivos estáticos en despliegues
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # WhatsApp (CTA global)
 WHATSAPP_PHONE_E164 = "50247808757"  # sin "+"
 WHATSAPP_DEFAULT_TEXT = "Hola Adbel, me interesa solicitar una cotización."
+
+# Media (uploads)
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

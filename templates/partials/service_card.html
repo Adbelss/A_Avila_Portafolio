@@ -1,0 +1,15 @@
+<article class="custom-card h-100">
+    <div class="card-body-custom">
+        <span class="custom-badge">Servicio</span>
+
+        <h3 class="h4 mt-3">{{ service.name|default:"Desarrollo Web Profesional" }}</h3>
+
+        <p class="text-secondary-custom mb-4">
+            {{ service.description|default:"Soluciones a medida con enfoque en rendimiento, mantenibilidad y presentación profesional." }}
+        </p>
+
+        <a href="{% url 'contact:contact' %}" class="card-link-custom">
+            Solicitar información
+        </a>
+    </div>
+</article>

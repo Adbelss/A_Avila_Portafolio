@@ -1,26 +1,26 @@
 from django.contrib import messages
-from django.shortcuts import redirect, render
-from django.views.decorators.http import require_http_methods
+from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
 
 from .forms import ContactForm
 
 
-@require_http_methods(["GET", "POST"])
-def contact_view(request):
-	if request.method == "POST":
-		form = ContactForm(request.POST)
-		if form.is_valid():
-			lead = form.save(commit=False)
-			lead.source = "web"
-			lead.save()
+class ContactView(FormView):
+    template_name = "contact/contact.html"
+    form_class = ContactForm
+    success_url = reverse_lazy("contact:contact")
 
-			messages.success(
-				request,
-				"Solicitud enviada correctamente. Te contactaré lo antes posible.",
-			)
-			return redirect("contact:contact")
-		messages.error(request, "Revisa el formulario e inténtalo de nuevo.")
-	else:
-		form = ContactForm()
+    def form_valid(self, form):
+        lead = form.save(commit=False)
+        lead.source = "web"
+        lead.save()
 
-	return render(request, "contact/contact.html", {"form": form})
+        messages.success(
+            self.request,
+            "Solicitud enviada correctamente. Te contactaré lo antes posible.",
+        )
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Revisa el formulario e inténtalo de nuevo.")
+        return super().form_invalid(form)

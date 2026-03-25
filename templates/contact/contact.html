@@ -1,74 +1,110 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Contacto | Smart Code{% endblock %}
+{% block title %}Contacto | Adbel Avila{% endblock %}
+{% block meta_description %}Página de contacto para solicitudes de cotización, desarrollo web, automatización y soluciones tecnológicas.{% endblock %}
 
 {% block content %}
-<section class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow-sm border-0">
-                <div class="card-body p-4 p-md-5">
-                    <h1 class="h3 mb-2">Contacto</h1>
-                    <p class="text-muted mb-4">
-                        Cuéntame qué necesitas y te respondo lo antes posible.
-                    </p>
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <span class="custom-badge">Contacto</span>
+                <h1 class="mt-3 mb-4" data-reveal>Hablemos de tu proyecto</h1>
+                <p class="text-secondary-custom mb-4" data-reveal>
+                    Si necesitas una página web, una solución con Django, automatización
+                    o apoyo técnico para tu proyecto, puedes escribirme por este medio.
+                </p>
+
+                <div class="custom-panel" data-reveal>
+                    <h2 class="h5 mb-3">Información de contacto</h2>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">
+                            <strong>Correo:</strong>
+                            <a href="mailto:adbel.aguilar.dev@gmail.com">adbel.aguilar.dev@gmail.com</a>
+                        </li>
+                        <li class="mb-2">
+                            <strong>WhatsApp:</strong>
+                            <a href="https://wa.me/50247808757" target="_blank" rel="noopener noreferrer">
+                                +502 4780-8757
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <strong>Ubicación:</strong> Guatemala
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="custom-panel" data-reveal>
+                    <h2 class="h4 mb-4">Envíame un mensaje</h2>
 
                     <form method="post" novalidate>
                         {% csrf_token %}
-                        {{ form.website }}
-
-                        <div class="mb-3">
-                            <label class="form-label">Nombre</label>
-                            {{ form.name }}
-                            {% for error in form.name.errors %}
-                                <div class="text-danger small mt-1">{{ error }}</div>
-                            {% endfor %}
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Correo</label>
-                            {{ form.email }}
-                            {% for error in form.email.errors %}
-                                <div class="text-danger small mt-1">{{ error }}</div>
-                            {% endfor %}
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Teléfono (opcional)</label>
-                            {{ form.phone }}
-                            {% for error in form.phone.errors %}
-                                <div class="text-danger small mt-1">{{ error }}</div>
-                            {% endfor %}
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Mensaje</label>
-                            {{ form.message }}
-                            {% for error in form.message.errors %}
-                                <div class="text-danger small mt-1">{{ error }}</div>
-                            {% endfor %}
-                        </div>
-
-                        <div class="d-flex flex-column flex-sm-row gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                Enviar solicitud
-                            </button>
-
-                            <a
-                                class="btn btn-outline-success"
-                                href="https://wa.me/{{ WHATSAPP_PHONE_E164 }}?text={{ WHATSAPP_DEFAULT_TEXT|urlencode }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Escribir por WhatsApp
-                            </a>
-                        </div>
 
                         {% if form.non_field_errors %}
-                            <div class="alert alert-danger mt-3 mb-0">
-                                {{ form.non_field_errors }}
+                            <div class="alert alert-danger">
+                                {% for error in form.non_field_errors %}
+                                    <div>{{ error }}</div>
+                                {% endfor %}
                             </div>
                         {% endif %}
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="{{ form.name.id_for_label }}" class="form-label">Nombre</label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <div class="text-danger small mt-1">
+                                        {% for error in form.name.errors %}
+                                            <div>{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="{{ form.email.id_for_label }}" class="form-label">Correo electrónico</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <div class="text-danger small mt-1">
+                                        {% for error in form.email.errors %}
+                                            <div>{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-12">
+                                <label for="{{ form.subject.id_for_label }}" class="form-label">Asunto</label>
+                                {{ form.subject }}
+                                {% if form.subject.errors %}
+                                    <div class="text-danger small mt-1">
+                                        {% for error in form.subject.errors %}
+                                            <div>{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-12">
+                                <label for="{{ form.message.id_for_label }}" class="form-label">Mensaje</label>
+                                {{ form.message }}
+                                {% if form.message.errors %}
+                                    <div class="text-danger small mt-1">
+                                        {% for error in form.message.errors %}
+                                            <div>{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary px-4">
+                                    Enviar solicitud
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -1,0 +1,39 @@
+<footer class="site-footer py-5 mt-5">
+    <div class="container">
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-5">
+                <h2 class="h5 mb-3">Adbel Avila</h2>
+                <p class="mb-0">
+                    Portafolio profesional orientado a desarrollo web, soluciones con Django,
+                    bases de datos, automatización y proyectos tecnológicos con enfoque profesional.
+                </p>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+                <h3 class="h6 mb-3">Navegación</h3>
+                <ul class="list-unstyled footer-links mb-0">
+                    <li><a href="{% url 'core:home' %}">Inicio</a></li>
+                    <li><a href="{% url 'services:service_list' %}">Servicios</a></li>
+                    <li><a href="{% url 'core:about' %}">Sobre mí</a></li>
+                    <li><a href="{% url 'contact:contact' %}">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <h3 class="h6 mb-3">Contacto</h3>
+                <ul class="list-unstyled mb-0 footer-links">
+                    <li><a href="mailto:adbel.aguilar.dev@gmail.com">adbel.aguilar.dev@gmail.com</a></li>
+                    <li><a href="https://wa.me/50247808757" target="_blank" rel="noopener noreferrer">WhatsApp: +502 4780-8757</a></li>
+                    <li>Guatemala</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small">
+            <span>&copy; {% now "Y" %} Adbel Avila. Todos los derechos reservados.</span>
+            <span>Desarrollado con Django y Bootstrap.</span>
+        </div>
+    </div>
+</footer>

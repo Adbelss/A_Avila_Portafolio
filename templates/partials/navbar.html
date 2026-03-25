@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+    <div class="container">
+        <a class="navbar-brand fw-semibold" href="{% url 'core:home' %}">
+            Adbel Avila
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir menú de navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'core:home' %}">
+                        Inicio
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if '/servicios/' in request.path %}active{% endif %}" href="{% url 'services:service_list' %}">
+                        Servicios
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if '/sobre-mi/' in request.path %}active{% endif %}" href="{% url 'core:about' %}">
+                        Sobre mí
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if '/contacto/' in request.path %}active{% endif %}" href="{% url 'contact:contact' %}">
+                        Contacto
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-primary btn-sm px-3" href="{% url 'contact:contact' %}">
+                        Solicitar cotización
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,38 +1,20 @@
-(function () {
-  const STORAGE_KEY = "theme";
-  const DEFAULT_THEME = "light"; // light | dark
+document.addEventListener("DOMContentLoaded", function () {
+  const animatedItems = document.querySelectorAll("[data-reveal]");
 
-  const themeToggle = document.getElementById("themeToggle");
+  if ("IntersectionObserver" in window && animatedItems.length > 0) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
 
-  function applyTheme(theme) {
-    document.documentElement.setAttribute("data-bs-theme", theme);
-
-    // Texto del botón
-    if (themeToggle) {
-      themeToggle.textContent = theme === "dark" ? "Modo claro" : "Modo oscuro";
-    }
+    animatedItems.forEach((item) => {
+      observer.observe(item);
+    });
   }
-
-  function getSavedTheme() {
-    return localStorage.getItem(STORAGE_KEY) || DEFAULT_THEME;
-  }
-
-  function saveTheme(theme) {
-    localStorage.setItem(STORAGE_KEY, theme);
-  }
-
-  function toggleTheme() {
-    const current = document.documentElement.getAttribute("data-bs-theme") || DEFAULT_THEME;
-    const next = current === "dark" ? "light" : "dark";
-    applyTheme(next);
-    saveTheme(next);
-  }
-
-  // Init
-  const initialTheme = getSavedTheme();
-  applyTheme(initialTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", toggleTheme);
-  }
-})();
+});
